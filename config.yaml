@@ -17,3 +17,4 @@ extensions:
   - mp4
   - avi
 skip_small_files_mb: 50
+slip_after_scan: 600

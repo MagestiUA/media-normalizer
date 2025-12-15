@@ -109,6 +109,7 @@ class VideoNormalizerApp:
         logger.info(f"\n\n")
 
     def run(self):
+        
         mode = self.config.get("mode", "continuous").lower()
         logger.info(f"Starting VideoNormalizer in {mode.upper()} mode")
         
@@ -128,7 +129,7 @@ class VideoNormalizerApp:
                     # Sleep between cycles?
                     # Spec: "continues - daemon... koжнi 10 секунд сканує"
                     # If cycle takes long, it's fine.
-                    time.sleep(10)
+                    time.sleep(self.config.get("slip_after_scan", 300))
                 except KeyboardInterrupt:
                     logger.info("Stopping...")
                     break
