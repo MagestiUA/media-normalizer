@@ -145,3 +145,53 @@ WHO IS THIS FOR
        - Jellyfin / Plex users
        - Anyone who does not want to manually re-encode terabytes
        - People who value stability over theoretical max quality
+
+## Running in Docker
+
+### Clone repository
+
+    git clone https://github.com/MagestiUA/media-normalizer.git
+    cd media-normalizer
+
+---
+
+### Build Docker image
+
+    docker build -t media-normalizer:local .
+
+---
+
+### Configure volumes
+
+Edit `docker-compose.yml` and mount your media directory:
+
+    volumes:
+      - /path/to/your/videos:/videos
+
+Also make sure `config.yaml` points to the same path:
+
+    source_path: "/videos"
+
+---
+
+### Start as background service (daemon)
+
+    docker compose up -d
+
+The container will:
+- run in background
+- automatically restart after system reboot
+- continuously scan for new media files
+
+---
+
+### Check status
+
+    docker compose ps
+    docker logs -f media-normalizer
+
+---
+
+### Stop service
+
+    docker compose down
