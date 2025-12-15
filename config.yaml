@@ -1,0 +1,19 @@
+source_path: "\\\\192.168.72.23\\NAS\\Video"
+threads: 1
+mode: "continuous" # options: "cron", "continuous"
+delete_backups: true
+keep_subtitles: false # Set to true to attempt converting subtitles to mov_text
+allow_hevc: true # If true, H.265/HEVC video will not be converted to H.264
+audio_bitrate: "192k"
+video_bitrate:
+  720p: "4M"
+  1080p: "10M"
+  2160p: "20M"
+nvenc_preset: "p4"
+hw_accel: "cpu" # options: "cuda", "cpu"
+cpu_preset: "veryfast" # options: "ultrafast", "superfast", "veryfast", "faster", "fast", "medium", "slow"
+extensions:
+  - mkv
+  - mp4
+  - avi
+skip_small_files_mb: 50
