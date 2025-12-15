@@ -1,4 +1,4 @@
-source_path: "\\\\192.168.72.23\\NAS\\Video"
+source_path: "/videos"
 threads: 1
 mode: "continuous" # options: "cron", "continuous"
 delete_backups: true

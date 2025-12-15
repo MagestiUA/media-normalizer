@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  media-normalizer:
+    image: media-normalizer:local
+    container_name: media-normalizer
+    restart: unless-stopped
+
+    volumes:
+      - /media/devmon/sda1-usb-Initio_INIC-3609/NAS/Video:/videos
+      - ./config.yaml:/app/config.yaml:ro
+
+    environment:
+      - TZ=Europe/Kyiv
+
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
